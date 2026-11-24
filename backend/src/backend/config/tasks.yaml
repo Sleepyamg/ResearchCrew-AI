@@ -1,17 +1,15 @@
 research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    Research the topic: {topic}.
+    The current year is {current_year}, so prioritise recent developments.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    1. Identify the 5 to 8 most important findings about the topic.
+    2. For each finding, state the source it comes from (publication or website
+       name, and URL if you know it).
+    3. Rate your confidence in each finding as High, Medium or Low.
+    4. List any open questions or claims that should be fact-checked later.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A markdown research brief with these sections:
+    "## Key Findings" (numbered findings, each with Source and Confidence),
+    "## Open Questions" (bullet list of claims needing verification).
+  agent: researcher

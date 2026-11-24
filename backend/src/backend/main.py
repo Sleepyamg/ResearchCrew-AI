@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from backend.crew import Backend
+from backend.crew import ResearchCrew
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -14,12 +14,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
+        'topic': 'The current state of solid-state batteries for electric vehicles',
         'current_year': str(datetime.now().year)
     }
 
     try:
-        Backend().crew().kickoff(inputs=inputs)
+        ResearchCrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -29,11 +29,11 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "topic": "The current state of solid-state batteries for electric vehicles",
         'current_year': str(datetime.now().year)
     }
     try:
-        Backend().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        ResearchCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -43,7 +43,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        Backend().crew().replay(task_id=sys.argv[1])
+        ResearchCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -53,12 +53,12 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "topic": "The current state of solid-state batteries for electric vehicles",
         "current_year": str(datetime.now().year)
     }
 
     try:
-        Backend().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        ResearchCrew().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -84,7 +84,7 @@ def run_with_trigger():
     }
 
     try:
-        result = Backend().crew().kickoff(inputs=inputs)
+        result = ResearchCrew().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")
