@@ -1,15 +1,21 @@
 research_task:
   description: >
-    Research the topic: {topic}.
-    The current year is {current_year}, so prioritise recent developments.
+    Investigate {topic} using the Web Search tool.
 
-    1. Identify the 5 to 8 most important findings about the topic.
-    2. For each finding, state the source it comes from (publication or website
-       name, and URL if you know it).
-    3. Rate your confidence in each finding as High, Medium or Low.
-    4. List any open questions or claims that should be fact-checked later.
+    Generate relevant search queries.
+    Collect information from at least three relevant sources.
+    Compare the available search results.
+    Do not invent URLs or unsupported claims.
+
+    If the search tool fails, explicitly state that
+    external research could not be completed.
+
   expected_output: >
-    A markdown research brief with these sections:
-    "## Key Findings" (numbered findings, each with Source and Confidence),
-    "## Open Questions" (bullet list of claims needing verification).
+    Structured research notes containing:
+    - Research topic
+    - Key findings
+    - Source titles and URLs
+    - Supporting search snippets
+    - Research limitations
+
   agent: researcher
