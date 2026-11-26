@@ -1,21 +1,66 @@
+
 research_task:
   description: >
-    Investigate {topic} using the Web Search tool.
+    Investigate {topic} as of {current_date}.
 
-    Generate relevant search queries.
-    Collect information from at least three relevant sources.
-    Compare the available search results.
-    Do not invent URLs or unsupported claims.
+    Delegate research to the Senior Research Analyst.
 
-    If the search tool fails, explicitly state that
-    external research could not be completed.
+    Search the internet using relevant queries.
+    Select at least three credible sources.
+    Use Web Scraper to read the selected sources.
+
+    Collect findings supported by actual retrieved content.
+    Preserve exact source URLs.
+    If a source fails, attempt another relevant source.
+    Do not invent information.
 
   expected_output: >
-    Structured research notes containing:
-    - Research topic
-    - Key findings
-    - Source titles and URLs
-    - Supporting search snippets
-    - Research limitations
+    Structured research notes containing key findings,
+    supporting evidence, exact source URLs,
+    and research limitations.
 
-  agent: researcher
+
+verification_task:
+  description: >
+    Delegate verification to the Evidence
+    Verification Specialist.
+
+    Review the research findings about {topic}.
+    Identify important factual claims and verify
+    them against the available evidence.
+
+    Use web search and scraping when further
+    verification is necessary.
+
+    Classify claims as supported, contradicted,
+    or unverified.
+
+    Exclude unsupported statistics and fabricated
+    citations from approved findings.
+
+  expected_output: >
+    A verification summary containing approved claims,
+    supporting evidence, source URLs,
+    rejected claims, and remaining uncertainties.
+
+
+report_task:
+  description: >
+    Delegate report generation to the
+    Research Report Writer.
+
+    Generate a professional research report about
+    {topic} using the verified findings.
+
+    Include an executive summary, methodology,
+    key findings, detailed analysis, limitations,
+    conclusion and references.
+
+    Do not introduce new unsupported facts.
+    Clearly communicate uncertainty.
+
+  expected_output: >
+    A complete Markdown research report containing
+    verified findings and supporting citations.
+
+  output_file: output/research_report.md
